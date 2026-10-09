@@ -1,0 +1,1710 @@
+/* =========================================================
+   NOVA AI v7 PROFESSIONAL
+   PART 1
+=========================================================*/
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
+
+:root{
+
+--bg:#0b1120;
+--bg2:#111827;
+
+--sidebar:#0f172a;
+
+--glass:rgba(255,255,255,.06);
+
+--glass2:rgba(255,255,255,.04);
+
+--border:rgba(255,255,255,.08);
+
+--primary:#6d5dfc;
+--primary2:#8b5cf6;
+
+--text:#ffffff;
+--text2:#cbd5e1;
+
+--radius:22px;
+
+--shadow:
+0 25px 60px rgba(0,0,0,.35);
+
+}
+
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Inter,sans-serif;
+
+}
+
+html{
+
+scroll-behavior:smooth;
+
+}
+
+body{
+
+height:100vh;
+
+overflow:hidden;
+
+color:white;
+
+background:
+
+radial-gradient(circle at top left,#1d4ed8 0%,transparent 35%),
+
+radial-gradient(circle at bottom right,#7c3aed 0%,transparent 35%),
+
+linear-gradient(135deg,#0b1120,#111827);
+
+}
+
+/* Scrollbar */
+
+::-webkit-scrollbar{
+
+width:8px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+background:#50557c;
+
+border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+background:#6d5dfc;
+
+}
+
+/* Container */
+
+.container{
+
+display:flex;
+
+height:100vh;
+
+}
+
+/* Sidebar */
+
+.sidebar{
+
+width:290px;
+
+display:flex;
+
+flex-direction:column;
+
+padding:24px;
+
+background:rgba(15,23,42,.86);
+
+backdrop-filter:blur(25px);
+
+border-right:1px solid rgba(255,255,255,.08);
+
+}
+
+/* Logo */
+
+.logo{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:28px;
+
+}
+
+.logo img{
+
+width:52px;
+
+height:52px;
+
+border-radius:16px;
+
+box-shadow:0 15px 35px rgba(109,93,252,.35);
+
+}
+
+.logo h2{
+
+font-size:24px;
+
+font-weight:800;
+
+}
+
+.logo span{
+
+display:block;
+
+font-size:13px;
+
+color:#94a3b8;
+
+margin-top:3px;
+
+}
+
+/* Sidebar Button */
+
+.sidebar button{
+
+width:100%;
+
+padding:15px;
+
+margin-bottom:14px;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:16px;
+
+font-size:15px;
+
+font-weight:600;
+
+color:white;
+
+background:
+
+linear-gradient(135deg,#6d5dfc,#8b5cf6);
+
+transition:.35s;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+}
+
+.sidebar button:hover{
+
+transform:translateY(-3px);
+
+box-shadow:0 15px 35px rgba(109,93,252,.45);
+
+}
+
+/* Search */
+
+.search-box{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+padding:14px;
+
+background:var(--glass);
+
+border:1px solid var(--border);
+
+border-radius:15px;
+
+margin-bottom:18px;
+
+}
+
+.search-box input{
+
+flex:1;
+
+background:transparent;
+
+border:none;
+
+outline:none;
+
+color:white;
+
+font-size:15px;
+
+}
+
+.search-box i{
+
+color:#9ca3af;
+
+}
+
+/* History */
+
+.history-title{
+
+font-size:13px;
+
+font-weight:700;
+
+letter-spacing:1px;
+
+text-transform:uppercase;
+
+color:#94a3b8;
+
+margin:10px 0;
+
+}
+
+#historyList{
+
+flex:1;
+
+overflow:auto;
+
+}
+
+#historyList li{
+
+list-style:none;
+
+padding:14px;
+
+border-radius:14px;
+
+cursor:pointer;
+
+margin-bottom:8px;
+
+transition:.3s;
+
+}
+
+#historyList li:hover{
+
+background:rgba(255,255,255,.06);
+
+}
+
+/* Footer */
+
+.sidebar-footer{
+
+display:flex;
+
+flex-direction:column;
+
+gap:10px;
+
+}
+
+/* Main */
+
+.main{
+
+flex:1;
+
+display:flex;
+
+flex-direction:column;
+
+overflow:hidden;
+
+}
+
+/* Header */
+
+.header{
+
+height:78px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 30px;
+
+background:rgba(255,255,255,.05);
+
+backdrop-filter:blur(25px);
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+.header-left h1{
+
+font-size:26px;
+
+font-weight:800;
+
+}
+
+.header-left p{
+
+margin-top:5px;
+
+color:#94a3b8;
+
+font-size:14px;
+
+}
+
+.header-right{
+
+display:flex;
+
+gap:12px;
+
+}
+
+.header-right button{
+
+width:48px;
+
+height:48px;
+
+border:none;
+
+border-radius:14px;
+
+background:rgba(255,255,255,.06);
+
+color:white;
+
+cursor:pointer;
+
+font-size:18px;
+
+transition:.3s;
+
+}
+
+.header-right button:hover{
+
+background:#6d5dfc;
+
+transform:translateY(-3px);
+
+}
+
+/* Chat */
+
+.chat-container{
+
+flex:1;
+
+display:flex;
+
+flex-direction:column;
+
+padding:30px;
+
+overflow:hidden;
+
+}
+
+#chat-box{
+
+flex:1;
+
+overflow:auto;
+
+padding-right:6px;
+
+}
+/* =========================================================
+   NOVA AI v7 PROFESSIONAL
+   PART 2
+   Welcome + Chat + Messages
+=========================================================*/
+
+/* ===========================
+WELCOME SCREEN
+===========================*/
+
+.welcome{
+
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+text-align:center;
+
+animation:fadeIn .6s ease;
+
+}
+
+.welcome-icon{
+
+width:110px;
+
+height:110px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:55px;
+
+border-radius:28px;
+
+background:linear-gradient(135deg,#6d5dfc,#8b5cf6);
+
+box-shadow:0 25px 55px rgba(109,93,252,.35);
+
+margin-bottom:30px;
+
+}
+
+.welcome h2{
+
+font-size:42px;
+
+font-weight:800;
+
+margin-bottom:15px;
+
+}
+
+.welcome p{
+
+font-size:18px;
+
+max-width:650px;
+
+line-height:1.8;
+
+color:#b7c2d6;
+
+margin-bottom:35px;
+
+}
+
+/* ===========================
+QUICK ACTIONS
+===========================*/
+
+.quick-actions{
+
+display:grid;
+
+grid-template-columns:repeat(2,240px);
+
+gap:18px;
+
+}
+
+.quick-btn{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+padding:18px;
+
+border:none;
+
+cursor:pointer;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+color:white;
+
+font-size:15px;
+
+font-weight:600;
+
+transition:.35s;
+
+}
+
+.quick-btn i{
+
+font-size:22px;
+
+color:#8b5cf6;
+
+}
+
+.quick-btn:hover{
+
+transform:translateY(-4px);
+
+background:rgba(255,255,255,.08);
+
+box-shadow:0 18px 40px rgba(0,0,0,.25);
+
+}
+
+/* ===========================
+CHAT MESSAGE
+===========================*/
+
+.message{
+
+display:flex;
+
+margin:20px 0;
+
+animation:slideUp .35s ease;
+
+}
+
+.message.user{
+
+justify-content:flex-end;
+
+}
+
+.message.bot{
+
+justify-content:flex-start;
+
+}
+
+.avatar{
+
+width:44px;
+
+height:44px;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:20px;
+
+flex-shrink:0;
+
+margin-top:4px;
+
+}
+
+.bot .avatar{
+
+background:linear-gradient(135deg,#6d5dfc,#8b5cf6);
+
+margin-right:14px;
+
+}
+
+.user .avatar{
+
+background:#1e293b;
+
+margin-left:14px;
+
+order:2;
+
+}
+
+.bubble{
+
+max-width:72%;
+
+padding:18px 22px;
+
+border-radius:22px;
+
+font-size:15px;
+
+line-height:1.8;
+
+word-break:break-word;
+
+position:relative;
+
+}
+
+.bot .bubble{
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-bottom-left-radius:8px;
+
+}
+
+.user .bubble{
+
+background:linear-gradient(135deg,#6d5dfc,#8b5cf6);
+
+border-bottom-right-radius:8px;
+
+}
+
+/* ===========================
+MESSAGE TIME
+===========================*/
+
+.time{
+
+display:block;
+
+margin-top:10px;
+
+font-size:11px;
+
+opacity:.65;
+
+}
+
+/* ===========================
+COPY BUTTON
+===========================*/
+
+.copy-btn{
+
+position:absolute;
+
+top:10px;
+
+right:10px;
+
+width:34px;
+
+height:34px;
+
+border:none;
+
+border-radius:10px;
+
+background:rgba(255,255,255,.08);
+
+color:white;
+
+cursor:pointer;
+
+opacity:0;
+
+transition:.25s;
+
+}
+
+.bot .bubble:hover .copy-btn{
+
+opacity:1;
+
+}
+
+.copy-btn:hover{
+
+background:#6d5dfc;
+
+}
+
+/* ===========================
+CODE BLOCK
+===========================*/
+
+pre{
+
+margin:18px 0;
+
+padding:18px;
+
+overflow:auto;
+
+border-radius:16px;
+
+background:#0f172a;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+code{
+
+font-family:Consolas,monospace;
+
+font-size:14px;
+
+}
+
+:not(pre)>code{
+
+background:#1f2937;
+
+padding:4px 8px;
+
+border-radius:8px;
+
+color:#8ab4ff;
+
+}
+
+/* ===========================
+TABLE
+===========================*/
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+margin:20px 0;
+
+}
+
+th,td{
+
+padding:12px;
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+th{
+
+background:rgba(255,255,255,.06);
+
+}
+
+/* ===========================
+LINK
+===========================*/
+
+a{
+
+color:#8ab4ff;
+
+text-decoration:none;
+
+}
+
+a:hover{
+
+text-decoration:underline;
+
+}
+
+/* ===========================
+TYPING
+===========================*/
+
+#typing{
+
+display:none;
+
+align-items:center;
+
+gap:12px;
+
+padding:15px 20px;
+
+width:max-content;
+
+margin:15px 0;
+
+border-radius:18px;
+
+background:rgba(255,255,255,.05);
+
+border:1px solid rgba(255,255,255,.08);
+
+}
+
+.dot{
+
+width:10px;
+
+height:10px;
+
+border-radius:50%;
+
+background:#8b5cf6;
+
+animation:typing 1.2s infinite;
+
+}
+
+.dot:nth-child(2){
+
+animation-delay:.2s;
+
+}
+
+.dot:nth-child(3){
+
+animation-delay:.4s;
+
+}
+
+/* ===========================
+TOAST
+===========================*/
+
+#toast{
+
+position:fixed;
+
+bottom:30px;
+
+right:30px;
+
+padding:15px 22px;
+
+background:#6d5dfc;
+
+color:white;
+
+font-weight:600;
+
+border-radius:16px;
+
+transform:translateY(120px);
+
+transition:.35s;
+
+box-shadow:0 20px 45px rgba(0,0,0,.35);
+
+z-index:9999;
+
+}
+
+#toast.show{
+
+transform:translateY(0);
+
+}
+
+/* ===========================
+ANIMATION
+===========================*/
+
+@keyframes fadeIn{
+
+from{
+
+opacity:0;
+
+transform:scale(.95);
+
+}
+
+to{
+
+opacity:1;
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes slideUp{
+
+from{
+
+opacity:0;
+
+transform:translateY(20px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:translateY(0);
+
+}
+
+}
+
+@keyframes typing{
+
+0%,100%{
+
+transform:translateY(0);
+
+opacity:.4;
+
+}
+
+50%{
+
+transform:translateY(-6px);
+
+opacity:1;
+
+}
+
+}
+/* =========================================================
+   NOVA AI v7 PROFESSIONAL
+   PART 3 (FINAL)
+   Input + Modal + Responsive
+=========================================================*/
+
+/*==============================
+INPUT AREA
+==============================*/
+
+.input-area{
+
+display:flex;
+
+align-items:flex-end;
+
+gap:14px;
+
+padding:24px 28px;
+
+background:rgba(11,17,32,.78);
+
+backdrop-filter:blur(24px);
+
+border-top:1px solid rgba(255,255,255,.08);
+
+}
+
+#userInput{
+
+flex:1;
+
+min-height:58px;
+
+max-height:180px;
+
+resize:none;
+
+padding:18px 22px;
+
+font-size:15px;
+
+color:#fff;
+
+background:rgba(255,255,255,.06);
+
+border:1px solid rgba(255,255,255,.08);
+
+border-radius:22px;
+
+outline:none;
+
+transition:.3s;
+
+overflow-y:auto;
+
+}
+
+#userInput:focus{
+
+border-color:#6d5dfc;
+
+box-shadow:0 0 25px rgba(109,93,252,.35);
+
+}
+
+#userInput::placeholder{
+
+color:#94a3b8;
+
+}
+
+/*==============================
+BUTTONS
+==============================*/
+
+.input-area button{
+
+width:54px;
+
+height:54px;
+
+border:none;
+
+border-radius:16px;
+
+background:rgba(255,255,255,.06);
+
+color:#fff;
+
+cursor:pointer;
+
+font-size:18px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+transition:.3s;
+
+}
+
+.input-area button:hover{
+
+transform:translateY(-3px);
+
+background:#6d5dfc;
+
+box-shadow:0 15px 35px rgba(109,93,252,.35);
+
+}
+
+#sendBtn{
+
+background:linear-gradient(135deg,#6d5dfc,#8b5cf6);
+
+}
+
+#sendBtn:hover{
+
+transform:scale(1.08);
+
+}
+
+#attachBtn:hover{
+
+background:#2563eb;
+
+}
+
+
+
+#webBtn:hover{
+
+background:#14b8a6;
+
+}
+
+#micBtn.listening{
+
+background:#ef4444;
+
+animation:micPulse 1s infinite;
+
+}
+
+/*==============================
+SETTINGS MODAL
+==============================*/
+
+.modal{
+
+display:none;
+
+.modal.show{
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+position:fixed;
+
+inset:0;
+
+background:rgba(0,0,0,.55);
+
+backdrop-filter:blur(10px);
+
+z-index:1000;
+
+}
+
+.modal-content{
+
+width:430px;
+
+margin:80px auto;
+
+background:#111827;
+
+border-radius:24px;
+
+padding:28px;
+
+border:1px solid rgba(255,255,255,.08);
+
+box-shadow:0 30px 70px rgba(0,0,0,.45);
+
+}
+
+.modal-header{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+margin-bottom:25px;
+
+}
+
+.modal-header h2{
+
+font-size:24px;
+
+}
+
+.modal-header button{
+
+border:none;
+
+background:none;
+
+color:#fff;
+
+font-size:22px;
+
+cursor:pointer;
+
+}
+
+.setting-row{
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:16px 0;
+
+border-bottom:1px solid rgba(255,255,255,.08);
+
+}
+
+/*==============================
+SWITCH
+==============================*/
+
+.switch{
+
+position:relative;
+
+display:inline-block;
+
+width:52px;
+
+height:28px;
+
+}
+
+.switch input{
+
+display:none;
+
+}
+
+.slider{
+
+position:absolute;
+
+cursor:pointer;
+
+inset:0;
+
+background:#374151;
+
+border-radius:50px;
+
+transition:.3s;
+
+}
+
+.slider:before{
+
+content:"";
+
+position:absolute;
+
+width:22px;
+
+height:22px;
+
+left:3px;
+
+top:3px;
+
+background:#fff;
+
+border-radius:50%;
+
+transition:.3s;
+
+}
+
+.switch input:checked + .slider{
+
+background:#6d5dfc;
+
+}
+
+.switch input:checked + .slider:before{
+
+transform:translateX(24px);
+
+}
+
+/*==============================
+RESPONSIVE
+==============================*/
+
+@media(max-width:1000px){
+
+.sidebar{
+
+width:90px;
+
+padding:15px;
+
+}
+
+.logo div,
+.search-box,
+.history-title,
+#historyList,
+.sidebar-footer button span{
+
+display:none;
+
+}
+
+.sidebar button{
+
+font-size:0;
+
+padding:15px;
+
+}
+
+}
+
+@media(max-width:768px){
+
+.container{
+
+flex-direction:column;
+
+}
+
+.sidebar{
+
+width:100%;
+
+height:80px;
+
+flex-direction:row;
+
+align-items:center;
+
+overflow-x:auto;
+
+gap:10px;
+
+}
+
+.main{
+
+height:calc(100vh - 80px);
+
+}
+
+.header{
+
+padding:0 18px;
+
+}
+
+.header-left h1{
+
+font-size:20px;
+
+}
+
+.header-left p{
+
+display:none;
+
+}
+
+.quick-actions{
+
+grid-template-columns:1fr;
+
+width:100%;
+
+}
+
+.quick-btn{
+
+width:100%;
+
+}
+
+.bubble{
+
+max-width:92%;
+
+}
+
+.avatar{
+
+display:none;
+
+}
+
+.input-area{
+
+padding:15px;
+
+gap:10px;
+
+}
+
+.input-area button{
+
+width:48px;
+
+height:48px;
+
+font-size:16px;
+
+}
+
+#userInput{
+
+font-size:14px;
+
+}
+
+.modal-content{
+
+width:95%;
+
+margin:40px auto;
+
+}
+
+}
+
+/*==============================
+ANIMATIONS
+==============================*/
+
+@keyframes micPulse{
+
+0%{
+
+transform:scale(1);
+
+}
+
+50%{
+
+transform:scale(1.12);
+
+box-shadow:0 0 25px rgba(239,68,68,.5);
+
+}
+
+100%{
+
+transform:scale(1);
+
+}
+
+}
+
+@keyframes float{
+
+0%,100%{
+
+transform:translateY(0);
+
+}
+
+50%{
+
+transform:translateY(-8px);
+
+}
+
+}
+
+.logo img{
+
+animation:float 4s ease-in-out infinite;
+
+}
+
+button{
+
+transition:all .3s ease;
+
+}
+
+button:active{
+
+transform:scale(.96);
+
+}
+
+img{
+
+user-select:none;
+
+}
+
+textarea{
+
+font-family:inherit;
+
+}
+
+/*==============================
+END
+==============================*/
+.voice-menu{
+    position:absolute;
+    top:70px;
+    right:80px;
+    width:220px;
+    background:#1d2333;
+    border-radius:12px;
+    padding:15px;
+    color:white;
+    box-shadow:0 0 15px rgba(0,0,0,.4);
+    z-index:999;
+}
+
+.voice-menu label{
+    display:block;
+    padding:10px 0;
+    cursor:pointer;
+}
+
+.hidden{
+    display:none;
+}
+body.light{
+
+    background:#f5f7fb;
+    color:#111;
+
+}
+
+body.light .sidebar{
+
+    background:#ffffff;
+    color:#111;
+
+}
+
+body.light .header{
+
+    background:#ffffff;
+    color:#111;
+
+}
+
+body.light .input-area{
+
+    background:#ffffff;
+
+}
+
+body.light #userInput{
+
+    background:#f1f5f9;
+    color:#111;
+
+}
+
+body.light .bubble{
+
+    color:#111;
+
+}
+
+body.light .bot .bubble{
+
+    background:#f3f4f6;
+
+}
+
+body.light .search-box{
+
+    background:#f3f4f6;
+
+}
+#webBtn.active{
+
+background:#2563eb;
+
+color:white;
+
+box-shadow:0 0 20px rgba(37,99,235,.4);
+
+}
+/* ================= LIGHT MODE ================= */
+
+body.light{
+    background:#f5f7fb;
+    color:#111827;
+}
+
+/* Sidebar */
+body.light .sidebar{
+    background:#ffffff;
+    border-right:1px solid #d1d5db;
+}
+
+/* Header */
+body.light .header{
+    background:#ffffff;
+    border-bottom:1px solid #d1d5db;
+}
+
+/* Header Text */
+body.light .header h1,
+body.light .header p,
+body.light .logo h2,
+body.light .logo span{
+    color:#111827;
+}
+
+/* Sidebar */
+body.light .history-title,
+body.light #historyList li,
+body.light .search-box i{
+    color:#111827;
+}
+
+/* Search */
+body.light .search-box{
+    background:#f3f4f6;
+    border:1px solid #d1d5db;
+}
+
+body.light .search-box input{
+    color:#111827;
+}
+
+/* Buttons */
+body.light button{
+    color:#111827;
+}
+
+body.light .header-right button{
+    background:#f3f4f6;
+}
+
+body.light .header-right button:hover{
+    background:#6d5dfc;
+    color:white;
+}
+
+/* Chat */
+
+body.light .bot .bubble{
+    background:white;
+    color:#111827;
+    border:1px solid #d1d5db;
+}
+
+body.light .user .bubble{
+    color:white;
+}
+
+/* Input */
+
+body.light .input-area{
+    background:#ffffff;
+}
+
+body.light #userInput{
+    background:#f3f4f6;
+    color:#111827;
+    border:1px solid #d1d5db;
+}
+
+body.light #userInput::placeholder{
+    color:#6b7280;
+}
+
+/* Welcome */
+
+body.light .welcome h2,
+body.light .welcome p{
+    color:#111827;
+}
+
+/* Quick Buttons */
+
+body.light .quick-btn{
+    background:white;
+    color:#111827;
+    border:1px solid #d1d5db;
+}
+
+/* Settings */
+
+body.light .modal-content{
+    background:white;
+    color:#111827;
+}
+
+body.light .setting-row{
+    color:#111827;
+}
+
+/* Voice Menu */
+
+body.light .voice-menu{
+    background:white;
+    color:#111827;
+    border:1px solid #d1d5db;
+}
+
+/* Toast */
+
+body.light #toast{
+    color:white;
+}

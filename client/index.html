@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Nova AI</title>
+
+<link rel="stylesheet" href="css/style.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- ================= Sidebar ================= -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <img src="images/logo.png" alt="Nova">
+
+            <div>
+
+                <h2>Nova AI</h2>
+
+                <span>Ultimate Assistant</span>
+
+            </div>
+
+        </div>
+
+        <button type="button" id="newChat">
+
+            <i class="fa-solid fa-plus"></i>
+
+            <span>New Chat</span>
+
+        </button>
+
+        <div class="search-box">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+                type="text"
+                id="searchChat"
+                placeholder="Search chats">
+
+        </div>
+
+        <div class="history-title">
+
+            Recent Chats
+
+        </div>
+
+        <ul id="historyList"></ul>
+
+        <div class="sidebar-footer">
+
+            <button type="button" id="exportBtn">
+
+                <i class="fa-solid fa-download"></i>
+
+                Export
+
+            </button>
+
+            <button type="button" id="clearChat">
+
+                <i class="fa-solid fa-trash"></i>
+
+                Clear
+
+            </button>
+
+        </div>
+
+    </aside>
+
+    <!-- ================= Main ================= -->
+
+    <main class="main">
+
+        <!-- Header -->
+
+        <header class="header">
+
+            <div class="header-left">
+
+                <h1>Nova AI</h1>
+
+                <p>Your personal AI assistant</p>
+
+            </div>
+
+            <div class="header-right">
+
+                <button type="button" id="themeBtn">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+
+                <button type="button" id="voiceBtn">
+                    <i class="fa-solid fa-volume-high"></i>
+                </button>
+
+                <div id="voiceMenu" class="voice-menu hidden">
+
+                    <h3>Voice Output</h3>
+
+                    <label>
+                        <input type="radio" name="voice" value="0">
+                        Mute
+                    </label>
+
+                    <label>
+                        <input type="radio" name="voice" value="0.4">
+                        Low
+                    </label>
+
+                    <label>
+                        <input type="radio" name="voice" value="0.7" checked>
+                        Medium
+                    </label>
+
+                    <label>
+                        <input type="radio" name="voice" value="1">
+                        High
+                    </label>
+
+                </div>
+
+                <button type="button" id="settingsBtn">
+
+                    <i class="fa-solid fa-gear"></i>
+
+                </button>
+
+            </div>
+
+        </header>
+
+        <!-- Chat Area -->
+
+        <section class="chat-container">
+
+            <div id="chat-box">
+
+                <div class="welcome" id="welcomeScreen">
+
+                    <div class="welcome-icon">
+
+                        <i class="fa-solid fa-robot"></i>
+
+                    </div>
+
+                    <h2>Welcome to Nova AI</h2>
+
+                    <p>
+
+                        Ask questions, upload files, generate code,
+
+                        analyze documents and chat naturally.
+
+                    </p>
+
+                    <div class="quick-actions">
+
+                        <button class="quick-btn">
+
+                            <i class="fa-solid fa-comments"></i>
+
+                            Start Chat
+
+                        </button>
+
+                        <button class="quick-btn">
+
+                            <i class="fa-solid fa-file-pdf"></i>
+
+                            Analyze PDF
+
+                        </button>
+
+                        <button class="quick-btn">
+
+                            <i class="fa-solid fa-code"></i>
+
+                            Generate Code
+
+                        </button>
+
+                        <button class="quick-btn">
+
+                            <i class="fa-solid fa-lightbulb"></i>
+
+                            Get Ideas
+
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="typing"></div>
+
+            <!-- ================= Input Area ================= -->
+
+            <div class="input-area">
+
+                <button type="button" id="attachBtn" title="Attach File">
+                    <i class="fa-solid fa-paperclip"></i>
+                </button>
+
+                <input
+                    type="file"
+                    id="fileInput"
+                    hidden
+                >
+
+                <button type="button" id="webBtn" title="Web Search">
+                    <i class="fa-solid fa-globe"></i>
+                </button>
+
+                <textarea
+                    id="userInput"
+                    placeholder="Message Nova AI..."
+                    rows="1"
+                ></textarea>
+
+                <button type="button" id="micBtn" title="Voice Input">
+                    <i class="fa-solid fa-microphone"></i>
+                </button>
+
+                <button type="button" id="sendBtn" title="Send">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+</div>
+
+<!-- ================= Settings ================= -->
+
+<div id="settingsModal" class="modal">
+
+    <div class="modal-content">
+
+        <div class="modal-header">
+
+            <h2>Settings</h2>
+
+            <button id="closeSettings">
+
+                <i class="fa-solid fa-xmark"></i>
+
+            </button>
+
+        </div>
+
+        <div class="setting-row">
+
+            <span>Theme</span>
+
+            <button id="themeToggle">
+
+                🌙
+
+            </button>
+
+        </div>
+
+        <div class="setting-row">
+
+            <span>Voice Reply</span>
+
+            <button id="voiceToggle">
+
+                🔇
+
+            </button>
+
+        </div>
+
+        <div class="setting-row">
+
+            <span>Auto Save Chat</span>
+
+            <label class="switch">
+
+                <input
+                    type="checkbox"
+                    id="autoSave"
+                    checked
+                >
+
+                <span class="slider"></span>
+
+            </label>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+<!-- ================= Toast ================= -->
+
+<div id="toast"></div>
+
+<!-- ================= Libraries ================= -->
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>
