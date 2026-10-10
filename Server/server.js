@@ -551,12 +551,15 @@ app.use((err, req, res, next) => {
 // ======================================
 // Start Server
 // ======================================
+if (require.main === module) {
+    app.listen(PORT, () => {
+        console.log("\n====================================");
+        console.log("🚀 Nova AI Ultimate Started");
+        console.log("====================================");
+        console.log(`🌐 http://localhost:${PORT}`);
+        console.log("❤️ Server Running Successfully");
+        console.log("====================================\n");
+    });
+}
 
-app.listen(PORT, () => {
-    console.log("\n====================================");
-    console.log("🚀 Nova AI Ultimate Started");
-    console.log("====================================");
-    console.log(`🌐 http://localhost:${PORT}`);
-    console.log("❤️ Server Running Successfully");
-    console.log("====================================\n");
-});
+module.exports = app;
